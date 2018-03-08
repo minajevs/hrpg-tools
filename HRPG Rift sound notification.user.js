@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         HRPG Rift sound notification
 // @namespace    http://heroesrpg.com/
-// @version      0.2
+// @version      1.0
 // @description  Little HRPG helper with features approved by Carl
 // @author       Code
 // @match        http://www.heroesrpg.com/*
@@ -10,7 +10,26 @@
 
 (function() {
     'use strict';
-    $('#header').prepend('<a>Rift notifier by Code v03</a> | ');
+    var _savedSettings = localStorage.getItem('_savedSettings');
+    if(!_savedSettings){
+        localStorage.setItem('_savedSettings', 'A Rift will open in 5 minutes;has reached');
+    }
+    $('#header').prepend('<a id="_notifierSettings">Rift notifier by Code v03</a> | ');
+    $('#_notifierSettings').on('click', function(){
+        showPopup();
+        $('#popup-title').html('Sound notifier settings');
+        $('#popup-content').html('<p>What text (only Global) triggers sound alarm. Separate with ";":</p><br/><textarea id="_triggers" cols="50"></textarea><br/><input type="button" id="_save" value="Save"/> | <input type="button" id="_reset" value="Reset"/><div style="position:absolute;bottom:0;right:0;">Made by Code.</div>');
+        $('#_triggers').val(localStorage.getItem('_savedSettings'));
+        $('#_save').on('click', function(){
+            localStorage.setItem('_savedSettings', $('#_triggers').val());
+        });
+        $('#_reset').on('click', _reset);
+    });
+
+    function _reset(){
+        localStorage.setItem('_savedSettings', 'A Rift will open in 5 minutes;has reached');
+        $('#_triggers').val(localStorage.getItem('_savedSettings'));
+    }
 
     var _audio;
     $( document ).ajaxSuccess(function( event, xhr, settings ) {
@@ -25,9 +44,14 @@
             $.each(data.c, function(i, item) {
                 if($.inArray(data.c[i].uid, ignored) < 0) {
                     if(data.c[i].type == 10) {
-                        console.log(data.c[i].message.indexOf('A Rift will open in 5 minutes') !== -1);
-                        if(data.c[i].message.indexOf('A Rift will open in 5 minutes') !== -1){
-                            _play();
+                        var _triggers = localStorage.getItem('_savedSettings').split(";");
+                        for(var j = 0; j < _triggers.length; j++){
+                            var _trigger = _triggers[j];
+                            if(_trigger && _trigger !== ''){
+                                if(data.c[i].message.indexOf(_trigger) !== -1){
+                                    _play();
+                                }
+                            }
                         }
                     }
                 }
