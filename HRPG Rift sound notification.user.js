@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         HRPG Rift sound notification
 // @namespace    http://heroesrpg.com/
-// @version      1.0
+// @version      1.1
 // @description  Little HRPG helper with features approved by Carl
 // @author       Code
 // @match        http://www.heroesrpg.com/*
