@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         HRPG Rift sound notification
 // @namespace    http://heroesrpg.com/
-// @version      1.1
+// @version      1.2
 // @description  Little HRPG helper with features approved by Carl
 // @author       Code
 // @match        http://www.heroesrpg.com/*
@@ -12,7 +12,7 @@
     'use strict';
     var _savedSettings = localStorage.getItem('_savedSettings');
     if(!_savedSettings){
-        localStorage.setItem('_savedSettings', 'A Rift will open in 5 minutes;has reached');
+        localStorage.setItem('_savedSettings', 'A Rift will open in 5 minutes;');
     }
     $('#header').prepend('<a id="_notifierSettings">Rift notifier by Code v1.0</a> | ');
     $('#_notifierSettings').on('click', function(){
