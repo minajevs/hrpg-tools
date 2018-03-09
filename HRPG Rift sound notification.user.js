@@ -12,7 +12,7 @@
     'use strict';
     var _savedSettings = localStorage.getItem('_savedSettings');
     if(!_savedSettings){
-        localStorage.setItem('_savedSettings', 'A Rift will open in 5 minutes;');
+        _reset();
     }
     $('#header').prepend('<a id="_notifierSettings">Rift notifier by Code v1.2</a> | ');
     $('#_notifierSettings').on('click', function(){
@@ -27,7 +27,7 @@
     });
 
     function _reset(){
-        localStorage.setItem('_savedSettings', 'A Rift will open in 5 minutes;');
+        localStorage.setItem('_savedSettings', 'A Rift will open in 5 minutes;A Rift has opened!;');
         $('#_triggers').val(localStorage.getItem('_savedSettings'));
     }
 
