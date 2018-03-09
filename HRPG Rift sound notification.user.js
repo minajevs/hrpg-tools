@@ -14,7 +14,7 @@
     if(!_savedSettings){
         localStorage.setItem('_savedSettings', 'A Rift will open in 5 minutes;');
     }
-    $('#header').prepend('<a id="_notifierSettings">Rift notifier by Code v1.0</a> | ');
+    $('#header').prepend('<a id="_notifierSettings">Rift notifier by Code v1.2</a> | ');
     $('#_notifierSettings').on('click', function(){
         showPopup();
         $('#popup-title').html('Sound notifier settings');
