@@ -27,7 +27,7 @@
     });
 
     function _reset(){
-        localStorage.setItem('_savedSettings', 'A Rift will open in 5 minutes;A Rift has opened!;');
+        localStorage.setItem('_savedSettings', 'A Rift will open in 5 minutes;Rift has opened!;');
         $('#_triggers').val(localStorage.getItem('_savedSettings'));
     }
 
