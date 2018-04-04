@@ -61,7 +61,7 @@
 
     function _play(){
         if(!_audio){
-            _audio = new Audio('https://github.com/minajevs/about_me/raw/master/bell.mp3');
+            _audio = new Audio('https://github.com/minajevs/hrpg-tools/raw/master/bell.mp3');
         }
         _audio.play();
     }
