@@ -19,7 +19,7 @@
     $('#_notifierSettings').on('click', function(){
         showPopup();
         $('#popup-title').html('Sound notifier settings');
-        $('#popup-content').html('<p>What text (only Global) triggers sound alarm. Separate with ";":</p><br/><textarea id="_triggers" cols="50"></textarea><br/><label for="_pmTrigger">Play sound on PM</label><br/><input type="button" id="_save" value="Save"/> | <input type="button" id="_reset" value="Reset"/><br/><input id="_pmTrigger" type="checkbox"><div style="position:absolute;bottom:0;right:0;">Made by Code. Special thanks to euphone.</div>');
+        $('#popup-content').html('<p>What text (only Global) triggers sound alarm. Separate with ";":</p><br/><textarea id="_triggers" cols="50"></textarea><br/><input id="_pmTrigger" type="checkbox"><label for="_pmTrigger">Play sound on PM</label><br/><input type="button" id="_save" value="Save"/> | <input type="button" id="_reset" value="Reset"/><br/><div style="position:absolute;bottom:0;right:0;">Made by Code. Special thanks to euphone.</div>');
         $('#_triggers').val(localStorage.getItem('_savedSettings'));
         $('#_pmTrigger').val(localStorage.getItem('_savedSettings_PM'));  
         $('#_save').on('click', function(){
