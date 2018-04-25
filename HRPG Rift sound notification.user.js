@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         HRPG sound notification
 // @namespace    http://heroesrpg.com/
-// @version      1.3
+// @version      1.3.1
 // @description  Little HRPG helper with features approved by Carl
 // @author       Code
 // @match        http://www.heroesrpg.com/*
