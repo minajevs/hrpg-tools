@@ -21,19 +21,19 @@
         $('#popup-title').html('Sound notifier settings');
         $('#popup-content').html('<p>What text (only Global) triggers sound alarm. Separate with ";":</p><br/><textarea id="_triggers" cols="50"></textarea><br/><input id="_pmTrigger" type="checkbox"><label for="_pmTrigger">Play sound on PM</label><br/><input type="button" id="_save" value="Save"/> | <input type="button" id="_reset" value="Reset"/><br/><div style="position:absolute;bottom:0;right:0;">Made by Code. Special thanks to euphone.</div>');
         $('#_triggers').val(localStorage.getItem('_savedSettings'));
-        $('#_pmTrigger').val(localStorage.getItem('_savedSettings_PM'));  
+        $('#_pmTrigger').prop('checked'localStorage.getItem('_savedSettings_PM'));  
         $('#_save').on('click', function(){
             localStorage.setItem('_savedSettings', $('#_triggers').val());
-            localStorage.setItem('_savedSettings_PM', $('#_pmTrigger').checked);
+            localStorage.setItem('_savedSettings_PM', $('#_pmTrigger').prop('checked'));
         });
         $('#_reset').on('click', _reset);
     });
 
     function _reset(){
         localStorage.setItem('_savedSettings', 'A Rift will open in 5 minutes;Rift has opened!;');
-        localStorage.setItem('_savedSettings_PM', true);
+        localStorage.setItem('_savedSettings_PM', false);
         $('#_triggers').val(localStorage.getItem('_savedSettings'));
-        $('#_pmTrigger').checked = localStorage.getItem('_savedSettings_PM');
+        $('#_pmTrigger').prop('checked', localStorage.getItem('_savedSettings_PM'));
     }
 
     var _audio;
