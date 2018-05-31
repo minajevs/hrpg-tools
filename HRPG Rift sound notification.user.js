@@ -5,6 +5,7 @@
 // @description  Little HRPG helper with features approved by Carl
 // @author       Code
 // @match        http://www.heroesrpg.com/*
+// @match        http://heroesrpg.com/*
 // @grant        none
 // ==/UserScript==
 
